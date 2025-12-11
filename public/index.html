@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rideau Canal Monitoring Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏒 Rideau Canal Skateway Monitoring</h1>
+            <div class="system-status" id="systemStatus">
+                <span class="status-label">System Status:</span>
+                <span class="status-badge" id="statusBadge">Loading...</span>
+                <span class="last-update" id="lastUpdate"></span>
+            </div>
+        </header>
+
+        <div class="stats-summary" id="statsSummary">
+            <div class="stat-card">
+                <div class="stat-value" id="totalLocations">-</div>
+                <div class="stat-label">Locations</div>
+            </div>
+            <div class="stat-card safe">
+                <div class="stat-value" id="safeLocations">-</div>
+                <div class="stat-label">Safe</div>
+            </div>
+            <div class="stat-card caution">
+                <div class="stat-value" id="cautionLocations">-</div>
+                <div class="stat-label">Caution</div>
+            </div>
+            <div class="stat-card unsafe">
+                <div class="stat-value" id="unsafeLocations">-</div>
+                <div class="stat-label">Unsafe</div>
+            </div>
+        </div>
+
+        <div class="locations-grid" id="locationsGrid">
+            <!-- Location cards will be inserted here -->
+        </div>
+
+        <div class="charts-section">
+            <h2>Historical Trends (Last Hour)</h2>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>Ice Thickness</h3>
+                    <canvas id="iceThicknessChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Surface Temperature</h3>
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Last updated: <span id="footerUpdate"></span></p>
+            <p>Auto-refresh: Every 30 seconds</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
